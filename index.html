@@ -4,122 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ID Glow | Glow With Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Couleurs et Style ID GLOW */
         :root {
             --gold: #D4AF37;
-            --nude-light: #F9F1EE;
+            --nude-bg: #FDF8F5;
             --nude-dark: #BC9683;
-            --text-color: #4A4A4A;
+            --deep-brown: #4A3728;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            color: var(--text-color);
-            background-color: #fff;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--deep-brown);
+            overflow-x: hidden;
         }
 
-        header {
-            background-color: var(--nude-light);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .logo h1 {
-            color: var(--gold);
-            letter-spacing: 5px;
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .hero {
-            padding: 80px 20px;
-            text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('votre-image-fond.jpg');
-            background-size: cover;
-        }
-
-        .hero h2 {
-            font-size: 2em;
-            color: var(--nude-dark);
-        }
-
-        .btn {
-            background-color: var(--gold);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background-color: var(--nude-dark);
-        }
-
-        .features {
+        /* --- Navigation --- */
+        nav {
             display: flex;
-            justify-content: space-around;
-            padding: 50px;
-            background-color: #fff;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .feature-item {
-            text-align: center;
-            max-width: 300px;
-            margin: 10px;
-        }
-
-        .feature-item h3 {
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 4px;
             color: var(--gold);
         }
 
-        footer {
-            background-color: var(--nude-light);
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { 
+            text-decoration: none; 
+            color: var(--deep-brown); 
+            font-weight: 400; 
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        nav ul li a:hover { color: var(--gold); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 30px;
-            font-size: 0.9em;
+            background: linear-gradient(rgba(253, 248, 245, 0.8), rgba(253, 248, 245, 0.8)), 
+                        url('https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?auto=format&fit=crop&q=80'); /* Image temporaire */
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            padding: 15px 40px;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--deep-brown);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- Concept Section --- */
+        .concept {
+            padding: 100px 10%;
+            background: var(--nude-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .grid-concept {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+        }
+
+        .card h3 { color: var(--gold); margin-bottom: 15px; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 5%;
+            background: var(--white);
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .social-links { margin: 20px 0; }
+        .social-links a { margin: 0 15px; color: var(--gold); text-decoration: none; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Pour simplifier sur mobile */
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <h1>ID GLOW</h1>
-            <p>Glow With Us</p>
+    <nav>
+        <div class="logo">ID GLOW</div>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#concept">Concept</a></li>
+            <li><a href="#boutique">Boutique</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Glow with us</h1>
+            <p>Le premier maquillage intelligent infusé d'actifs skincare pour une peau sublimée et respectée.</p>
+            <a href="#boutique" class="btn-primary">Découvrir l'éclat</a>
         </div>
     </header>
 
-    <section class="hero">
-        <h2>Sublimez votre beauté, prenez soin de votre peau.</h2>
-        <p>Le maquillage innovant infusé d'actifs skincare pour un éclat naturel.</p>
-        <a href="#boutique" class="btn">Découvrir la Collection</a>
-    </section>
-
-    <section class="features">
-        <div class="feature-item">
-            <h3>Authenticité</h3>
-            <p>Une marque créée par Imane et Douae pour révéler l'identité de chaque femme.</p>
-        </div>
-        <div class="feature-item">
-            <h3>Soin Infusé</h3>
-            <p>Des formules hydratantes et protectrices pour un confort absolu toute la journée.</p>
-        </div>
-        <div class="feature-item">
-            <h3>Éclat Naturel</h3>
-            <p>Des produits conçus pour embellir sans jamais agresser votre épiderme.</p>
+    <section id="concept" class="concept">
+        <h2 class="section-title">Pourquoi ID Glow ?</h2>
+        <div class="grid-concept">
+            <div class="card">
+                <h3>Identité</h3>
+                <p>Inspirée par Imane & Douae, notre marque valorise l'authenticité de chaque femme.</p>
+            </div>
+            <div class="card">
+                <h3>Soin Infusé</h3>
+                <p>Des formules avec agents hydratants et protecteurs pour ne plus choisir entre beauté et santé[cite: 6, 25].</p>
+            </div>
+            <div class="card">
+                <h3>Innovation</h3>
+                <p>Un maquillage qui ne se limite pas à couvrir, mais qui améliore activement votre confort[cite: 17, 26].</p>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 ID Glow - Maquillage & Skincare. Suivez-nous sur Instagram.</p>
+        <div class="logo">ID GLOW</div>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+        </div>
+        <p>&copy; 2026 ID Glow - Maquillage Intelligent. Tous droits réservés.</p>
     </footer>
 
 </body>
